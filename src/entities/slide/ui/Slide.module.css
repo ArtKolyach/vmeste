@@ -1,0 +1,11 @@
+.slide {
+    transition: background-color ease-in-out 1s;
+}
+
+.defaultSlide {
+    background-color: #ff1f60;
+}
+
+.nightSlide {
+    background-color: darkblue;
+}

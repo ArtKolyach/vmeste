@@ -3,8 +3,16 @@ import type { ThemeConfig } from "antd";
 
 export const antdTheme: ThemeConfig = {
   token: {
-    colorPrimary: "green",
-    colorInfo: "green",
+    colorPrimary: "#ffaa45",
+    colorText: "#ffa736",
+    fontFamily: "Rubik Bubbles, system-ui",
+    fontWeightStrong: 400,
   },
-  algorithm: theme.defaultAlgorithm,
+  components: {
+    Typography: {
+      titleMarginBottom: 0,
+      titleMarginTop: 0,
+    },
+  },
+  algorithm: theme.darkAlgorithm,
 };

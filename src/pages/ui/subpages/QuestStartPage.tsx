@@ -1,7 +1,7 @@
 import { QuestPage } from "../QuestPage.tsx";
 import boxPng from "../../../assets/box.png";
 
-export const StartPage = () => {
+export const QuestStartPage = () => {
   return (
     <QuestPage
       backgroundColor={"#ffee9a"}

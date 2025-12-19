@@ -2,10 +2,11 @@ import { type RouteObject } from "react-router";
 import { PaperPlane } from "../../pages/ui/subpages/PaperPlane.tsx";
 import { PoolPage } from "../../pages/ui/subpages/PoolPage.tsx";
 import { PineapplePage } from "../../pages/ui/subpages/PineapplePage.tsx";
-import { StartPage } from "../../pages/ui/subpages/StartPage.tsx";
 import { ShowPage } from "../../pages/ui/subpages/ShowPage.tsx";
 import { EightballPage } from "../../pages/ui/subpages/EightballPage.tsx";
 import { FinalPage } from "../../pages/ui/FinalPage.tsx";
+import { CarouselPage } from "@/pages/carousel/ui/CarouselPage.tsx";
+import { StartPage } from "@/pages/start-page/ui/StartPage.tsx";
 
 export const routes: RouteObject[] = [
   {
@@ -14,6 +15,10 @@ export const routes: RouteObject[] = [
       {
         index: true,
         element: <StartPage />,
+      },
+      {
+        path: "results",
+        element: <CarouselPage />,
       },
       {
         path: "show",
