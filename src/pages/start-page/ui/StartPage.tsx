@@ -11,10 +11,10 @@ export const StartPage = () => {
       vertical
       align="center"
       justify="center"
-      gap={"10vh"}
+      gap="10px"
       className={styles.pageWrapper}
     >
-      <Text style={{ fontSize: 100 }}>2 года</Text>
+      <Text style={{ fontSize: "5rem" }}>2 года</Text>
       <Logo style={{ maxHeight: "50vh", padding: "0 5vw" }} />
       <Link to="results">
         <Button
@@ -23,13 +23,14 @@ export const StartPage = () => {
             boxShadow: "2px 3px 0 #470481",
             border: "2px solid #470481",
             gap: 0,
+            marginTop: "10vh",
           }}
           type="primary"
           shape="round"
         >
           <span>
-            А за этот год
-            <span style={{ color: "purple" }}>{` МЫ...`}</span>
+            За этот год
+            <span style={{ color: "#470481" }}>{` МЫ...`}</span>
           </span>
         </Button>
       </Link>
