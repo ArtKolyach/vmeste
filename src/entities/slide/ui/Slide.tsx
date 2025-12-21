@@ -4,11 +4,13 @@ import styles from "./Slide.module.css";
 
 type Props = {
   backgroundColor?: CSSProperties["backgroundColor"];
+  background?: CSSProperties["background"];
 };
 
 export const Slide = ({
   children,
   backgroundColor,
+  background,
   style,
   ...flexProps
 }: PropsWithChildren<Props> & FlexProps) => {
@@ -17,7 +19,13 @@ export const Slide = ({
       justify="center"
       align="center"
       vertical
-      style={{ height: "100vh", backgroundColor: backgroundColor ?? "pink" }}
+      style={{
+        height: "100vh",
+        backgroundColor: backgroundColor ?? "inherit",
+        background,
+        textAlign: "center",
+        padding: 15,
+      }}
       className={`${styles.slide}`}
       gap={20}
       {...flexProps}
