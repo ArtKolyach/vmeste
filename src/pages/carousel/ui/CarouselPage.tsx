@@ -1,9 +1,10 @@
-import { Carousel, Flex, Typography, Image } from "antd";
+import { Carousel, Flex, Typography, Image, FloatButton } from "antd";
 import { Slide } from "@/entities/slide";
 import { Logo } from "@/widgets/logo/ui/Logo.tsx";
 import styles from "./CarouselPage.module.css";
-import type { CSSProperties } from "react";
+import { type CSSProperties, useCallback, useRef, useState } from "react";
 import kissPng from "@/assets/kiss.png";
+import { MutedOutlined, SoundFilled } from "@ant-design/icons";
 
 const { Title } = Typography;
 
@@ -16,6 +17,31 @@ const titleStyle: CSSProperties = {
 };
 
 export const CarouselPage = () => {
+  const guitarMusicRef = useRef(new Audio("/vmeste/music/guitar.mp3"));
+  guitarMusicRef.current.loop = true;
+  const musicBoxRef = useRef(new Audio("/vmeste/music/music-box.mp3"));
+  musicBoxRef.current.loop = true;
+
+  const [musicPlaying, setMusicPlaying] = useState(false);
+
+  const handleSlideChange = useCallback(
+    (current: number, next: number) => {
+      if (musicPlaying) {
+        if (next === 10) {
+          guitarMusicRef.current.pause();
+          musicBoxRef.current.currentTime = guitarMusicRef.current.currentTime;
+          musicBoxRef.current.play();
+        }
+        if (current === 10) {
+          musicBoxRef.current.pause();
+          guitarMusicRef.current.currentTime = musicBoxRef.current.currentTime;
+          guitarMusicRef.current.play();
+        }
+      }
+    },
+    [musicPlaying],
+  );
+
   return (
     <Flex
       vertical
@@ -37,6 +63,7 @@ export const CarouselPage = () => {
         draggable
         fade
         className={styles.carousel}
+        beforeChange={handleSlideChange}
         style={{
           width: "100%",
           height: "100dvh",
@@ -142,6 +169,18 @@ export const CarouselPage = () => {
           </Title>
         </Slide>
       </Carousel>
+      <FloatButton
+        icon={musicPlaying ? <SoundFilled /> : <MutedOutlined />}
+        onClick={() => {
+          if (musicPlaying) {
+            musicBoxRef.current.pause();
+            guitarMusicRef.current.pause();
+          } else {
+            guitarMusicRef.current.play();
+          }
+          setMusicPlaying((prev) => !prev);
+        }}
+      />
     </Flex>
   );
 };
