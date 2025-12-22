@@ -14,7 +14,24 @@ const titleStyle: CSSProperties = {
     "radial-gradient(#812125FF 50%, transparent 90%, transparent 100%)",
   borderRadius: 100,
   padding: 25,
+  margin: 0,
 };
+
+const headerStyle: CSSProperties = {
+  flex: 1,
+  display: "flex",
+  alignItems: "end",
+};
+
+const centerStyle: CSSProperties = {
+  flex: "none",
+};
+
+const bottomStyle: CSSProperties = {
+  flex: 1,
+};
+
+const centerTitleStyle = { ...titleStyle, ...centerStyle };
 
 export const CarouselPage = () => {
   const guitarMusicRef = useRef(new Audio("/vmeste/music/guitar.mp3"));
@@ -72,73 +89,85 @@ export const CarouselPage = () => {
       >
         {/*СООБЩЕНИЯ*/}
         <Slide>
-          <Title>Отправили друг другу</Title>
-          <Title style={titleStyle}>75 161</Title>
-          <Title>сообщение</Title>
+          <Title style={headerStyle}>Отправили друг другу</Title>
+          <Title style={centerTitleStyle}>75 161</Title>
+          <Title style={bottomStyle}>сообщение</Title>
         </Slide>
         {/*КРУЖОЧКИ*/}
         <Slide>
-          <Title>Любовались друг другом на</Title>
-          <Title style={titleStyle}>187</Title>
-          <Title>кружочках</Title>
+          <Title style={headerStyle}>Любовались друг другом на</Title>
+          <Title style={centerTitleStyle}>187</Title>
+          <Title style={bottomStyle}>кружочках</Title>
         </Slide>
         {/*ГОЛОСОВЫЕ*/}
         <Slide>
-          <Title>Слушали голос друг друга на протяжении</Title>
-          <Title style={titleStyle}>111</Title>
-          <Title>минут</Title>
+          <Title style={headerStyle}>
+            Слушали голос друг друга на протяжении
+          </Title>
+          <Title style={centerTitleStyle}>111</Title>
+          <Title style={bottomStyle}>минут</Title>
         </Slide>
         {/*РЕСТОРАНЫ*/}
         <Slide>
-          <Title>Вкусно покушали в</Title>
-          <Title style={titleStyle}>26</Title>
-          <Title>ресторанах</Title>
+          <Title style={headerStyle}>Вкусно покушали в</Title>
+          <Title style={centerTitleStyle}>26</Title>
+          <Title style={bottomStyle}>ресторанах</Title>
         </Slide>
         {/*ГОРОДА*/}
         <Slide>
-          <Title>Побывали в</Title>
-          <Title style={titleStyle}>6</Title>
-          <Title>городах</Title>
+          <Title style={headerStyle}>Побывали в</Title>
+          <Title style={centerTitleStyle}>6</Title>
+          <Title style={bottomStyle}>городах</Title>
         </Slide>
         {/*ТРАНСПОРТ*/}
         <Slide>
-          <Title>Прокатились на</Title>
-          <Title style={titleStyle}>12</Title>
-          <Title>видах транспорта</Title>
+          <Title style={headerStyle}>Прокатились на</Title>
+          <Title style={centerTitleStyle}>12</Title>
+          <Title style={bottomStyle}>видах транспорта</Title>
         </Slide>
         {/*АКТИВНОСТИ*/}
         <Slide>
-          <Title>Посетили</Title>
-          <Title style={{ ...titleStyle, fontSize: "4em" }}>3</Title>
-          <Flex justify="center" align="center" wrap gap={20}>
-            <Title style={{ marginTop: 0, color: "#c586ff" }} level={2}>
-              выставки
-            </Title>
-            <Title level={2}>театра</Title>
-            <Title style={{ color: "#ff7665" }} level={2}>
-              концерта
-            </Title>
+          <Title style={{ ...headerStyle, marginTop: "30%" }}>Посетили</Title>
+          <Flex
+            vertical
+            align="center"
+            justify="center"
+            gap={10}
+            style={centerStyle}
+          >
+            <Title style={{ ...titleStyle, fontSize: "4em" }}>3</Title>
+            <Flex justify="center" align="center" wrap gap={20}>
+              <Title style={{ marginTop: 0, color: "#c586ff" }} level={2}>
+                выставки
+              </Title>
+              <Title level={2}>театра</Title>
+              <Title style={{ color: "#ff7665" }} level={2}>
+                концерта
+              </Title>
+            </Flex>
+            <Title style={{ ...titleStyle, fontSize: "4em" }}>2</Title>
           </Flex>
-          <Title style={{ ...titleStyle, fontSize: "4em" }}>2</Title>
-          <Title level={2}>матча</Title>
+          <Title style={{ ...bottomStyle, marginTop: 0 }} level={2}>
+            матча
+          </Title>
         </Slide>
         {/*ФОТКИ*/}
         <Slide>
-          <Title>Сделали</Title>
-          <Title style={titleStyle}>582</Title>
-          <Title>совместные фотографии</Title>
+          <Title style={headerStyle}>Сделали</Title>
+          <Title style={centerTitleStyle}>582</Title>
+          <Title style={bottomStyle}>совместные фотографии</Title>
         </Slide>
         {/*ВЕРНУЛИСЬ С РАБОТЫ*/}
         <Slide>
-          <Title>Вернулись с работы</Title>
-          <Title style={titleStyle}>20</Title>
-          <Title>раз</Title>
+          <Title style={headerStyle}>Вернулись с работы</Title>
+          <Title style={centerTitleStyle}>20</Title>
+          <Title style={bottomStyle}>раз</Title>
         </Slide>
         {/*ЧУ*/}
         <Slide>
-          <Title>Послали друг другу</Title>
-          <Title style={titleStyle}>335</Title>
-          <Flex align="center" gap={10}>
+          <Title style={headerStyle}>Послали друг другу</Title>
+          <Title style={centerTitleStyle}>335</Title>
+          <Flex align="center" gap={10} style={bottomStyle}>
             <Title style={{ fontSize: titleStyle.fontSize, marginTop: 0 }}>
               Чу
             </Title>
@@ -149,7 +178,8 @@ export const CarouselPage = () => {
         <Slide
           background={`linear-gradient(30deg, ${"#1f0c53"}, ${"#180b33"})`}
         >
-          <Flex vertical gap={10}>
+          <div style={headerStyle}></div>
+          <Flex vertical gap={10} style={centerStyle}>
             <Title
               style={{
                 ...titleStyle,
@@ -164,7 +194,7 @@ export const CarouselPage = () => {
               раза
             </Title>
           </Flex>
-          <Title style={{ color: "#FFDA83FF" }}>
+          <Title style={{ color: "#FFDA83FF", ...bottomStyle }}>
             пожелали друг другу пи ночи
           </Title>
         </Slide>

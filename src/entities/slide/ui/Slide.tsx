@@ -23,12 +23,10 @@ export const Slide = ({
         height: "100vh",
         ...style,
         display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
         backgroundColor: backgroundColor ?? "inherit",
         background,
         textAlign: "center",
-        padding: 15,
+        padding: "34% 15px",
         boxSizing: "border-box",
       }}
       className={`${styles.slide}`}
