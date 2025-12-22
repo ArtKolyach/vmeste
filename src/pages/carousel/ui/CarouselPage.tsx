@@ -8,7 +8,7 @@ import kissPng from "@/assets/kiss.png";
 const { Title } = Typography;
 
 const titleStyle: CSSProperties = {
-  fontSize: 100,
+  fontSize: "5em",
   background:
     "radial-gradient(#812125FF 50%, transparent 90%, transparent 100%)",
   borderRadius: 100,
@@ -22,13 +22,13 @@ export const CarouselPage = () => {
       align="center"
       style={{
         width: "100%",
-        height: "100%",
+        height: "100dvh",
         display: "flex",
-        maxWidth: "100vw",
+        maxWidth: "100dvw",
       }}
     >
       <div style={{ position: "absolute", top: 0, zIndex: 2 }}>
-        <Logo style={{ maxHeight: "40vh", padding: "5vh" }} />
+        <Logo style={{ maxHeight: "40vh", padding: "2vh 5vh 0 5vh" }} />
       </div>
       <Carousel
         dots
@@ -39,8 +39,9 @@ export const CarouselPage = () => {
         className={styles.carousel}
         style={{
           width: "100%",
-          height: "100vh",
+          height: "100dvh",
           maxWidth: "100vw",
+          padding: 15,
           // backgroundColor: "#4e0018",
         }}
       >
@@ -83,7 +84,7 @@ export const CarouselPage = () => {
         {/*АКТИВНОСТИ*/}
         <Slide>
           <Title>Посетили</Title>
-          <Title style={{ ...titleStyle, fontSize: 75 }}>3</Title>
+          <Title style={{ ...titleStyle, fontSize: "4em" }}>3</Title>
           <Flex justify="center" align="center" wrap gap={20}>
             <Title style={{ marginTop: 0, color: "#c586ff" }} level={2}>
               выставки
@@ -93,7 +94,7 @@ export const CarouselPage = () => {
               концерта
             </Title>
           </Flex>
-          <Title style={{ ...titleStyle, fontSize: 75 }}>2</Title>
+          <Title style={{ ...titleStyle, fontSize: "4em" }}>2</Title>
           <Title level={2}>матча</Title>
         </Slide>
         {/*ФОТКИ*/}

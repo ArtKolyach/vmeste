@@ -21,10 +21,13 @@ export const Slide = ({
       vertical
       style={{
         height: "100vh",
+        ...style,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
         backgroundColor: backgroundColor ?? "inherit",
         background,
         textAlign: "center",
-        padding: 15,
       }}
       className={`${styles.slide}`}
       gap={20}
