@@ -41,8 +41,6 @@ export const CarouselPage = () => {
           width: "100%",
           height: "100dvh",
           maxWidth: "100vw",
-          padding: 15,
-          // backgroundColor: "#4e0018",
         }}
       >
         {/*СООБЩЕНИЯ*/}

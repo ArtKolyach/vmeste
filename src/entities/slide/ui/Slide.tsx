@@ -28,6 +28,8 @@ export const Slide = ({
         backgroundColor: backgroundColor ?? "inherit",
         background,
         textAlign: "center",
+        padding: 15,
+        boxSizing: "border-box",
       }}
       className={`${styles.slide}`}
       gap={20}
