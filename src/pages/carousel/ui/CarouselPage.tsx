@@ -8,6 +8,17 @@ import { MutedOutlined, SoundFilled } from "@ant-design/icons";
 
 const { Title } = Typography;
 
+const getLogoTranslation = (slideIndex: number | null) => {
+  switch (slideIndex) {
+    case 8:
+      return "translateY(15dvh)";
+    case 12:
+      return "translateY(40dvh)";
+    default:
+      return undefined;
+  }
+};
+
 const titleStyle: CSSProperties = {
   fontSize: "5em",
   background:
@@ -45,7 +56,6 @@ export const CarouselPage = () => {
 
   const handleSlideChange = useCallback(
     (current: number, next: number) => {
-      console.log(next);
       if (musicPlaying) {
         if (next === 10) {
           guitarMusicRef.current.pause();
@@ -78,7 +88,7 @@ export const CarouselPage = () => {
         style={{
           position: "absolute",
           top: 0,
-          transform: currentSlide === 12 ? "translateY(40dvh)" : undefined,
+          transform: getLogoTranslation(currentSlide),
           zIndex: 2,
           display: "flex",
           flexDirection: "column",
