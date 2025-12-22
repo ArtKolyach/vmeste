@@ -1,0 +1,6 @@
+.roundie {
+    border-radius: 100%;
+    width: 35dvw;
+    height: 35dvw;
+    position: fixed;
+}

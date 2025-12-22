@@ -2,9 +2,17 @@ import { Carousel, Flex, Typography, Image, FloatButton } from "antd";
 import { Slide } from "@/entities/slide";
 import { Logo } from "@/widgets/logo/ui/Logo.tsx";
 import styles from "./CarouselPage.module.css";
-import { type CSSProperties, useCallback, useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import kissPng from "@/assets/kiss.png";
 import { MutedOutlined, SoundFilled } from "@ant-design/icons";
+import {
+  titleStyle,
+  centerTitleStyle,
+  headerStyle,
+  bottomStyle,
+  centerStyle,
+} from "./styles.ts";
+import { RoundiesSlide } from "./RoundiesSlide.tsx";
 
 const { Title } = Typography;
 
@@ -18,31 +26,6 @@ const getLogoTranslation = (slideIndex: number | null) => {
       return undefined;
   }
 };
-
-const titleStyle: CSSProperties = {
-  fontSize: "5em",
-  background:
-    "radial-gradient(#812125FF 50%, transparent 90%, transparent 100%)",
-  borderRadius: 100,
-  padding: 25,
-  margin: 0,
-};
-
-const headerStyle: CSSProperties = {
-  flex: 1,
-  display: "flex",
-  alignItems: "end",
-};
-
-const centerStyle: CSSProperties = {
-  flex: "none",
-};
-
-const bottomStyle: CSSProperties = {
-  flex: 1,
-};
-
-const centerTitleStyle = { ...titleStyle, ...centerStyle };
 
 export const CarouselPage = () => {
   const [currentSlide, setCurrentSlide] = useState<number | null>(null);
@@ -125,11 +108,12 @@ export const CarouselPage = () => {
           <Title style={bottomStyle}>сообщение</Title>
         </Slide>
         {/*КРУЖОЧКИ*/}
-        <Slide>
-          <Title style={headerStyle}>Любовались друг другом на</Title>
-          <Title style={centerTitleStyle}>187</Title>
-          <Title style={bottomStyle}>кружочках</Title>
-        </Slide>
+        {/*<Slide>*/}
+        {/*  <Title style={headerStyle}>Любовались друг другом на</Title>*/}
+        {/*  <Title style={centerTitleStyle}>187</Title>*/}
+        {/*  <Title style={bottomStyle}>кружочках</Title>*/}
+        {/*</Slide>*/}
+        <RoundiesSlide />
         {/*ГОЛОСОВЫЕ*/}
         <Slide>
           <Title style={headerStyle}>
@@ -229,7 +213,7 @@ export const CarouselPage = () => {
             пожелали друг другу пи ночи
           </Title>
         </Slide>
-        <Slide gap={30}>
+        <Slide>
           <Title style={{ ...titleStyle, fontSize: "10vw", marginTop: "30%" }}>
             Много
           </Title>
