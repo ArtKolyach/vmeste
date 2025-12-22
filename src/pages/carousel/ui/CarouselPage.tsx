@@ -13,6 +13,7 @@ import {
   centerStyle,
 } from "./styles.ts";
 import { RoundiesSlide } from "./RoundiesSlide.tsx";
+import { TransportsSlide } from "@/pages/carousel/ui/TransportsSlide.tsx";
 
 const { Title } = Typography;
 
@@ -130,11 +131,7 @@ export const CarouselPage = () => {
           <Title style={bottomStyle}>городах</Title>
         </Slide>
         {/*ТРАНСПОРТ*/}
-        <Slide>
-          <Title style={headerStyle}>Прокатились на</Title>
-          <Title style={centerTitleStyle}>12</Title>
-          <Title style={bottomStyle}>видах транспорта</Title>
-        </Slide>
+        <TransportsSlide />
         {/*АКТИВНОСТИ*/}
         <Slide>
           <Title style={{ ...headerStyle, marginTop: "30%" }}>Посетили</Title>
