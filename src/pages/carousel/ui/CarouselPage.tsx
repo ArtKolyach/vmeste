@@ -34,6 +34,8 @@ const bottomStyle: CSSProperties = {
 const centerTitleStyle = { ...titleStyle, ...centerStyle };
 
 export const CarouselPage = () => {
+  const [currentSlide, setCurrentSlide] = useState<number | null>(null);
+
   const guitarMusicRef = useRef(new Audio("/vmeste/music/guitar.mp3"));
   guitarMusicRef.current.loop = true;
   const musicBoxRef = useRef(new Audio("/vmeste/music/music-box.mp3"));
@@ -43,6 +45,7 @@ export const CarouselPage = () => {
 
   const handleSlideChange = useCallback(
     (current: number, next: number) => {
+      console.log(next);
       if (musicPlaying) {
         if (next === 10) {
           guitarMusicRef.current.pause();
@@ -55,6 +58,7 @@ export const CarouselPage = () => {
           guitarMusicRef.current.play();
         }
       }
+      setCurrentSlide(next);
     },
     [musicPlaying],
   );
@@ -70,8 +74,25 @@ export const CarouselPage = () => {
         maxWidth: "100dvw",
       }}
     >
-      <div style={{ position: "absolute", top: 0, zIndex: 2 }}>
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          transform: currentSlide === 12 ? "translateY(40dvh)" : undefined,
+          zIndex: 2,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+        className={styles.logo}
+      >
         <Logo style={{ maxHeight: "40vh", padding: "2vh 5vh 0 5vh" }} />
+        <Title
+          className={styles.canAll}
+          style={{ margin: 0, opacity: currentSlide === 12 ? 100 : 0 }}
+        >
+          мы сможем всё!
+        </Title>
       </div>
       <Carousel
         dots
@@ -197,6 +218,21 @@ export const CarouselPage = () => {
           <Title style={{ color: "#FFDA83FF", ...bottomStyle }}>
             пожелали друг другу пи ночи
           </Title>
+        </Slide>
+        <Slide gap={30}>
+          <Title style={{ ...titleStyle, fontSize: "10vw", marginTop: "30%" }}>
+            Много
+          </Title>
+          <Title>смеялись</Title>
+          <Title style={{ ...titleStyle, fontSize: "10vw" }}>
+            Недостаточно
+          </Title>
+          <Title>обнимались</Title>
+          <Title style={{ ...titleStyle, fontSize: "10vw" }}>Бесконечно</Title>
+          <Title>любили</Title>
+        </Slide>
+        <Slide>
+          <></>
         </Slide>
       </Carousel>
       <FloatButton
