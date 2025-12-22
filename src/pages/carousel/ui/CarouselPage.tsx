@@ -108,11 +108,6 @@ export const CarouselPage = () => {
           <Title style={bottomStyle}>сообщение</Title>
         </Slide>
         {/*КРУЖОЧКИ*/}
-        {/*<Slide>*/}
-        {/*  <Title style={headerStyle}>Любовались друг другом на</Title>*/}
-        {/*  <Title style={centerTitleStyle}>187</Title>*/}
-        {/*  <Title style={bottomStyle}>кружочках</Title>*/}
-        {/*</Slide>*/}
         <RoundiesSlide />
         {/*ГОЛОСОВЫЕ*/}
         <Slide>
@@ -190,9 +185,7 @@ export const CarouselPage = () => {
           </Flex>
         </Slide>
         {/*ПИ НОЧИ*/}
-        <Slide
-          background={`linear-gradient(30deg, ${"#1f0c53"}, ${"#180b33"})`}
-        >
+        <Slide className={styles.night}>
           <div style={headerStyle}></div>
           <Flex vertical gap={10} style={centerStyle}>
             <Title
