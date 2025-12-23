@@ -24,7 +24,7 @@ const getLogoTranslation = (slideIndex: number | null) => {
     case 8:
       return "translateY(15dvh)";
     case 12:
-      return "translateY(30dvh)";
+      return "translateY(15dvh)";
     default:
       return undefined;
   }
