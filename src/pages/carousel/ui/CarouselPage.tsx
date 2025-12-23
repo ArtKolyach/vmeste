@@ -19,12 +19,12 @@ import ticket2 from "@/assets/ticket2.png";
 
 const { Title } = Typography;
 
-const getLogoTranslation = (slideIndex: number | null) => {
+const getLogoTranslation = (slideIndex: number | null, ticketsOut: boolean) => {
   switch (slideIndex) {
     case 8:
       return "translateY(15dvh)";
     case 12:
-      return "translateY(15dvh)";
+      return ticketsOut ? "translateY(15dvh)" : "translateY(40dvh)";
     default:
       return undefined;
   }
@@ -75,7 +75,7 @@ export const CarouselPage = () => {
         style={{
           position: "absolute",
           top: 0,
-          transform: getLogoTranslation(currentSlide),
+          transform: getLogoTranslation(currentSlide, ticketsOut),
           zIndex: 2,
           display: "flex",
           flexDirection: "column",
