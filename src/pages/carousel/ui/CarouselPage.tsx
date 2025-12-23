@@ -14,6 +14,8 @@ import {
 } from "./styles.ts";
 import { RoundiesSlide } from "./RoundiesSlide.tsx";
 import { TransportsSlide } from "@/pages/carousel/ui/TransportsSlide.tsx";
+import ticket1 from "@/assets/ticket1.png";
+import ticket2 from "@/assets/ticket2.png";
 
 const { Title } = Typography;
 
@@ -22,7 +24,7 @@ const getLogoTranslation = (slideIndex: number | null) => {
     case 8:
       return "translateY(15dvh)";
     case 12:
-      return "translateY(40dvh)";
+      return "translateY(30dvh)";
     default:
       return undefined;
   }
@@ -30,6 +32,7 @@ const getLogoTranslation = (slideIndex: number | null) => {
 
 export const CarouselPage = () => {
   const [currentSlide, setCurrentSlide] = useState<number | null>(null);
+  const [ticketsOut, setTicketsOut] = useState(false);
 
   const guitarMusicRef = useRef(new Audio("/vmeste/music/guitar.mp3"));
   guitarMusicRef.current.loop = true;
@@ -80,7 +83,14 @@ export const CarouselPage = () => {
         }}
         className={styles.logo}
       >
-        <Logo style={{ maxHeight: "40vh", padding: "2vh 5vh 0 5vh" }} />
+        <Logo
+          style={{ maxHeight: "40vh", padding: "2vh 5vh 0 5vh" }}
+          onClick={() => {
+            if (currentSlide === 12) {
+              setTicketsOut((prev) => !prev);
+            }
+          }}
+        />
         <Title
           className={styles.canAll}
           style={{ margin: 0, opacity: currentSlide === 12 ? 100 : 0 }}
@@ -219,6 +229,10 @@ export const CarouselPage = () => {
           <></>
         </Slide>
       </Carousel>
+      <div className={`${styles.tickets} ${ticketsOut ? styles.shown : ""} `}>
+        <img src={ticket1} alt="ticket1" className={styles.ticket1} />
+        <img src={ticket2} alt="ticket2" className={styles.ticket2} />
+      </div>
       <FloatButton
         icon={musicPlaying ? <SoundFilled /> : <MutedOutlined />}
         onClick={() => {
